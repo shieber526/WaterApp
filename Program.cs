@@ -8,7 +8,7 @@ namespace WaterTrackingApp
         {
             //variables declared..
             string enterAgain;
-            int age;
+            int goal;
             int water;
             int glasses;
             int total;
@@ -24,39 +24,35 @@ namespace WaterTrackingApp
             Console.WriteLine(" ");
 
             //Asking for the user's age.
-            Console.WriteLine("Please enter your age: ");
-            age = int.Parse(Console.ReadLine());
+            Console.WriteLine("What is your glass goal for the day?: ");
+            goal = int.Parse(Console.ReadLine());
+            
 
             do
             {  //Asking for the amount of ounces of water
-                Console.WriteLine("How many oz of water have you drank?");
-                water = int.Parse(Console.ReadLine());
-
-                //Calculating the amount of oz divided by 8 to determine glasses as well as total.
-                glasses = water / 8;
-                total = glasses - 68;
+                Console.WriteLine("How many glasses of water have you drank so far?");
+                glasses = int.Parse(Console.ReadLine());         
 
                 //More variable to be used if the user has less than 68 oz or 8 glasses.
                 more = 8 - glasses;
-                moreGlasses = more / 8;
-
-
+                
                 //If statement for statements for water.
-                if (glasses > 8)
+                if (glasses > goal)
                 {
-                    Console.WriteLine("You've had a lot of water for today/n That's great!");
+                    Console.WriteLine("You've made your goal/n That's great!");
                     count = count + glasses;
                 }
                 else
                 {
-                    Console.WriteLine("You need " + more + " more glasses.");
+                    Console.WriteLine("You are {0:D} away from your goal!", more);
                     Console.WriteLine("Keep going!!");
                     count = count + glasses;
                 }
 
                 //Displays results of the program.
-                Console.WriteLine("You are " + age + " years old.");
+                Console.WriteLine("Your goal is " + goal + " glasses.");
                 Console.WriteLine("You have tracked {0:D} glasses in this session.", glasses);
+                ;
 
 
 
